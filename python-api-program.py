@@ -3,14 +3,14 @@ import requests
 def MovieTitle():
 	movie_name=str(input("Enter the search string : "))
 	
-	cmd=str(f"http://www.omdbapi.com/?apikey=88deb2b&t={movie_name}")
-	return cmd
+	movie_url=str(f"http://www.omdbapi.com/?apikey=88deb2b&t={movie_name}")
+	return movie_url
 
 
 def main():
 	while True:
-		cmd=MovieTitle()
-		r = requests.get(url = cmd) 
+		movie_url=MovieTitle()
+		r = requests.get(movie_url) 
 # extracting data in json format 
 		data = r.json()
 		if 'Error' in data:
