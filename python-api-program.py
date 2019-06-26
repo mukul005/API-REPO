@@ -1,44 +1,34 @@
-# importing the requests library 
-import requests 
+import requests
+import sys
 def MovieTitle():
-	movie_name=str(input("Enter the search string : "))
-	
-	movie_url=str(f"http://www.omdbapi.com/?apikey=88deb2b&t={movie_name}")
-	return movie_url
+     movie_name=sys.argv[1:]
+     movie_url=f"http://www.omdbapi.com/?apikey=88deb2b&t={movie_name}"
+     return movie_url
 
 
 def main():
-	while True:
-		movie_url=MovieTitle()
-		r = requests.get(movie_url) 
-# extracting data in json format 
-		data = r.json()
-		if 'Error' in data:
-			print("This is not a valid movie name")
+    movie_url=MovieTitle()
+    data = requests.get(url = movie_url)
+    data_json = data.json()
+    try:
+        Ratings=data_json["Ratings"]
+        try:
+            for i in Ratings:
+                if 'Rotten Tomatoes' in i['Source']:
+                    rotten=i
+            Percent=rotten['Value']
 
-			truth_value=input("Do you want to type movie name again?(y/n) : ")
-			if truth_value != 'y':
-				exit()
-			continue
-		
-			
-		else:
-			try:
-				Ratings=data["Ratings"]
-				for i in Ratings:
-					if 'Rotten Tomatoes' in i['Source']:
-						rotten=i
-					
-				Percent=rotten['Value']
-				if int(Percent[:len(Percent)-1]) <30:
-					print("You can watch this movie as rotten tomatoes is only",rotten['Value'])
-				else:
-					print("Don't watch this movie as it does not seems to be good movie and it has rotten tomatoes value ",rotten['Value'])
+            if int(Percent[:len(Percent)-1]) <30:
+                print("This doesn't appears to be good movie as it has low rating on Rotten Tomatoes.")
+                print("Rotten Tomatoes Rating : ",rotten['Value'])
+            else:
+                print("It seems to be good movie as it has high rating on Rotten Tomatoes.")
+                print("Rotten Tomatoes Rating :  ",rotten['Value'])
+        except:
+            print("No Rotten Tomatoes rating found")
 
-			except:
-				print("There isn't any rating found for this script")
-			exit()
-
+    except:
+        print("There is no such movie, try again")
 
 if __name__== "__main__":
-	main()
+        main()
