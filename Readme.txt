@@ -4,12 +4,12 @@ Below are the instructions which needs to be performed for successful execution 
 
 2. Run git clone command
  
-   # git clone https://github.com/mukul005/API-REPO.git
+   # git clone https://github.com/mukul005/omdb-api.git
 The above command will clone the public repo on host linux machine and "API" folder will get create at current path after it's successful execution
 
-3. Enter into "API" directory using below command
+3. Enter into "omdb-api" directory using below command
    
-    # cd API-REPO/
+    # cd omdb-api/
 
 4. Now run "docker.sh" using below command
    # "./docker.sh" or "sh docker.sh"
