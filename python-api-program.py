@@ -19,10 +19,10 @@ def main():
             Percent=rotten['Value']
 
             if int(Percent[:len(Percent)-1]) <30:
-                print("This doesn't appears to be good movie as it has low rating on Rotten Tomatoes.")
+                print("This movie has rating below 30% on Rotten tomatoes, can be ignored")
                 print("Rotten Tomatoes Rating : ",rotten['Value'])
             else:
-                print("It seems to be good movie as it has high rating on Rotten Tomatoes.")
+                print("This movie has rating above 30% on Rotten tomatoes and could be watched atleast once.")
                 print("Rotten Tomatoes Rating :  ",rotten['Value'])
         except:
             print("No Rotten Tomatoes rating found")
