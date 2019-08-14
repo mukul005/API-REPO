@@ -18,7 +18,7 @@ After the successful execution of above command, we will be inside docker contai
 
 5. Now run python script inside docker container and input movie whose ratings we need.
    
-   ## python /var/tmp/python-api-program.py "Movie-Name"
+   ## python /tmp/python-api-program.py "Movie-Name"
 
 #####################
 Notes:-
