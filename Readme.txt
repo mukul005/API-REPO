@@ -20,6 +20,14 @@ After the successful execution of above command, we will be inside docker contai
    
    ## python /tmp/python-api-program.py "Movie-Name"
 
+
+#Error Handled
+
+API Key Wrong
+Movie name not found
+Rotten Tomatoes ratings not present
+URL is not responding 
+
 #####################
 Notes:-
 --- In case we want to get out of container we will type "exit" on shell
