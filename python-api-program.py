@@ -14,6 +14,7 @@ def main():
 # Taking details
 
     movie_name=sys.argv[1:]
+
     URL = 'http://www.omdbapi.com'
     api_key='88deb2b'
     PARAMS = {'t':movie_name, 'r': 'json', 'apikey': api_key}
@@ -64,5 +65,7 @@ def main():
 
     label .END
 
-if __name__== "__main__":
-        main()
+if len(sys.argv) == 1:
+    print('Please provide movie name as an argument')
+else:
+    main()
